@@ -1,0 +1,22 @@
+mat-card {
+  margin-bottom: 1em;
+  font-size: 24px;
+  display: flex;
+
+  button {
+    margin-left: auto; /* Заменил float: right на margin-left: auto */
+  }
+
+  .post-title {
+    font-weight: bold;
+  }
+
+  .post-meta {
+    font-size: 16px; /* Исправил font-weight на font-size */
+    font-style: italic;
+  }
+
+  .post-body {
+    margin-bottom: 1em;
+  }
+}

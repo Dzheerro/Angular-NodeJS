@@ -1,0 +1,24 @@
+<button (click)="isOpen = !isOpen" mat-raised-button color="accent">
+  <mat-icon>add</mat-icon>Create Vacancy
+</button>
+
+<form *ngIf="isOpen" [formGroup]="Form" #formDirective="ngForm" (ngSubmit)="onSubmit(Form.value)" novalidate>
+  <mat-form-field>
+    <mat-label> Vacancy </mat-label>
+    <input matInput  formControlName="title">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> Company's name </mat-label>
+    <input matInput type="text" formControlName="company">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> Vacancy Description </mat-label>
+    <input matInput type="text" formControlName="body">
+  </mat-form-field>
+  <button color="accent" [disabled]="!Form.valid" mat-raised-button type="submit">
+    
+    <span> Post </span></button>
+</form>
+
+
+ 
