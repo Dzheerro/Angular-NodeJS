@@ -22,12 +22,13 @@ export class CreatePostComponent {
     Form: FormGroup = new FormGroup({
     title: new FormControl("", [Validators.required, Validators.minLength(5)]),
     body: new FormControl("", [Validators.required, Validators.minLength(10)]),
-    company: new FormControl("", [Validators.required, Validators.minLength (5)])
+    company: new FormControl("", [Validators.required, Validators.minLength (5)]),
+    city: new FormControl("", [Validators.required, Validators.minLength (3)])
   });
 
   ngOnInit():void {}
 
-  onSubmit(formData: Pick<Post, "title" | "company" | "body">): void {
+  onSubmit(formData: Pick<Post, "title" | "company" | "city" | "body">): void {
     console.log('Form data:', formData); 
     this.postService.createPost(formData, this.authService.userId).pipe(first()).subscribe(
       () => {

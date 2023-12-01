@@ -17,6 +17,7 @@ router.post(
     auth, 
     body("title").trim().isLength({min: 5}).not().isEmpty(),
     body("company").trim().isString().not().isEmpty(),
+    body("city").trim().isString().not().isEmpty(),
     body("body").trim().isLength({min: 10}).not().isEmpty(),
     body("user").trim().not().isEmpty(),
    

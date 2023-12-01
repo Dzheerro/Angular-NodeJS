@@ -1,9 +1,10 @@
 const db = require('../util/database');
 
 module.exports = class Post {
-  constructor(title, company, body, user) {
+  constructor(title, company, city, body, user) {
     this.title = title;
     this.company = company;
+    this.city = city;
     this.body = body;
     this.user = Number(user);
 
@@ -15,8 +16,8 @@ module.exports = class Post {
 
   static save(post) {
     return db.execute(
-      'INSERT INTO posts (title, company, body, user) VALUES (?, ?, ?, ?)', 
-      [post.title, post.company, post.body, post.user]);
+      'INSERT INTO posts (title, company, city, body, user) VALUES (?, ?, ?, ?, ?)', 
+      [post.title, post.company, post.city, post.body, post.user]);
   }
 
   static delete(id) {

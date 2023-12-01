@@ -21,14 +21,15 @@ exports.postPost = async (req, res, next) => {
 
     const title = req.body.title;
     const company = req.body.company;
+    const city = req.body.city
     const body = req.body.body;
-    const user = req.body.user.name;
+    const user = req.body.user;
   
 
-    console.log('Received data:', { title, company, body, user });
+    console.log('Received data:', { title, company, city, body, user });
 
     // Создаем нового пользователя
-    const post = new Post(title, company, body, user);
+    const post = new Post(title, company, city, body, user);
 
     // Сохраняем пользователя в базу данных
     const result = await Post.save(post);
