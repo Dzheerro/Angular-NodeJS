@@ -24,6 +24,10 @@ module.exports = class Post {
     return db.execute('DELETE FROM posts WHERE id = ?', [id]);
   }
 
+  static filter(city) {
+    return db.execute('SELECT * FROM posts WHERE city = ?', [city]);
+  }
+ 
 };
 
  

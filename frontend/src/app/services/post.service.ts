@@ -43,4 +43,11 @@ export class PostService {
       catchError(this.errorHandlerService.handleError<Post>("deletePost"))
     )
   }
+  filterPostsByCity(city: string): Observable<Post[]> {
+    return this.http.post<Post[]>(`${this.url}/filter`, { city }, this.httpOptions)
+      .pipe(
+        catchError(this.errorHandlerService.handleError<Post[]>('filterPostsByCity', []))
+      );
+  } 
+  
 }

@@ -51,3 +51,15 @@ exports.deletePost = async (req, res, next) => {
   }
 }  
 
+exports.filterPosts = async (req, res, next) => {
+  try {
+    const city = req.body.city; // Получаем город из тела запроса
+
+    const [filteredPosts] = await Post.filter(city);
+    res.status(200).json(filteredPosts);
+  } catch (err) {
+    console.error('Error in filtering posts:', err);
+    next(err);
+  }
+}
+

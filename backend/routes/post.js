@@ -27,5 +27,6 @@ router.post(
 
 router.delete('/:id', auth,  postsController.deletePost)
 
+router.post("/filter", auth, postsController.filterPosts);
 
 module.exports = router;
