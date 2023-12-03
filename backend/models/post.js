@@ -27,6 +27,10 @@ module.exports = class Post {
   static filter(city) {
     return db.execute('SELECT * FROM posts WHERE city = ?', [city]);
   }
+
+  static filterByTech(title) {
+    return db.execute('SELECT * FROM posts WHERE title = ?', [title]);
+  }
  
 };
 

@@ -7,7 +7,14 @@
 <mat-form-field [formGroup]="filterForm">
   <input matInput type="text" formControlName="city"  placeholder="Enter city">
   <button (click)="filterByCity()">
-    <mat-icon>tune</mat-icon> Filter
+    <mat-icon>tune</mat-icon> Filter by City Name
+  </button>
+</mat-form-field>
+
+<mat-form-field [formGroup]="filterByTechForm">
+  <input matInput type="text" formControlName="title"  placeholder="Enter Technology">
+  <button (click)="filterByTech()">
+    <mat-icon>tune</mat-icon> Filter by Technology
   </button>
 </mat-form-field>
 

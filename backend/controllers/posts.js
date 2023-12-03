@@ -63,3 +63,16 @@ exports.filterPosts = async (req, res, next) => {
   }
 }
 
+exports.filterByTech = async (req, res, next) => {
+  try {
+    const title = req.body.title;
+
+    const [filterByTech] = await Post.filterByTech(title);
+    res.status(200).json(filterByTech);
+  } catch (err) {
+    console.error('Error in filtering posts:', err);
+    next(err);
+  }
+}
+
+

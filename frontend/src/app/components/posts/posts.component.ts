@@ -15,6 +15,7 @@ export class PostsComponent implements OnInit {
   posts$: Observable<Post[]>;
   userId: Pick<User, 'id'>;
   filterForm: FormGroup;  // Добавление FormGroup для формы ввода города
+  filterByTechForm: FormGroup;
 
   constructor(
     private postService: PostService,
@@ -25,6 +26,9 @@ export class PostsComponent implements OnInit {
     this.userId = this.authService.userId;
     this.filterForm = this.formBuilder.group({
       city: [''],  // Поле для ввода города
+    });
+    this.filterByTechForm = this.formBuilder.group({
+      title: ['']
     });
   }
 
@@ -57,5 +61,19 @@ export class PostsComponent implements OnInit {
       console.error('City control is null.');  // Вывести ошибку в консоль для отладки
     }
   }
-  
+
+  filterByTech(): void {
+    const titleControl = this.filterByTechForm.get('title');
+    if (titleControl) {
+      const title = titleControl.value;
+      if (title) {
+        this.posts$ = this.postService.filterByTech(title);
+      } else {
+        this.posts$ = this.fetchAll();
+      }
+    } else {
+      console.error('City control is null.');  // Вывести ошибку в консоль для отладки
+    }
+  }
+
 }

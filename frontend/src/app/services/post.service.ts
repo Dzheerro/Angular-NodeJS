@@ -49,5 +49,12 @@ export class PostService {
         catchError(this.errorHandlerService.handleError<Post[]>('filterPostsByCity', []))
       );
   } 
+
+  filterByTech(title: string): Observable <Post[]> {
+    return this.http.post<Post[]>(`${this.url}/filterByTech`, { title }, this.httpOptions)
+    .pipe(
+      catchError(this.errorHandlerService.handleError<Post[]>('filterByTech', []))
+    );
+  }
   
 }
